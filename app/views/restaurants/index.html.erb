@@ -1,0 +1,26 @@
+<div class="container">
+
+  <h1 class="text-center">Our restaurants</h1>
+
+  <% pictures = ["http://i.f1g.fr/media/ext/orig/www.lefigaro.fr/medias/2013/12/05/PHO9c94bd0c-5d95-11e3-9117-7d8eaf2feb0f-805x453.jpg","https://img.grouponcdn.com/deal/hfefAup1zQWBE2K8sWURgS27xax/hf-846x508/v1/c700x420.jpg", "https://www.cicis.com/media/1138/pizza_trad_pepperoni.png"]%>
+
+        <div class="row">
+          <% @restaurants.each do |restaurant| %>
+            <div class="col-sm-6 col-md-4">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= pictures.sample%>);">
+                <div class="card-category"><%= restaurant.category %></div>
+                  <div class="card-description">
+                    <h2><%= restaurant.name %></h2>
+                  </div>
+                  <div class="card-link-forward">
+                  </div>
+              <%= link_to  "", restaurant_path(restaurant), class: "card-link" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+  <h2 class="text-center"> <%= link_to 'Add restaurant', new_restaurant_path  %></h2>
+
+</div>
+
